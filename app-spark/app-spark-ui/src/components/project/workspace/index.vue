@@ -35,9 +35,11 @@ const { phase, frameSrc, frameKey, waiting } = useConversationPreview(panelOpen)
 <style lang="postcss" scoped>
 .workspace-panel {
   display: flex;
-  flex: 1;
   flex-direction: column;
+  width: 100%;
+  height: 100%;
   min-width: 0;
+  min-height: 0;
 }
 
 .workspace-panel__code {

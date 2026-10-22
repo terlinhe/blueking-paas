@@ -7,8 +7,23 @@
     color="#f3f5f8"
   >
     <ProjectLayout>
-      <InteractionPanel />
-      <WorkspacePanel />
+      <bk-resize-layout
+        class="project-split"
+        placement="left"
+        :min="320"
+        :max="1000"
+        initial-divide="400px"
+        :border="false"
+        collapsible
+        immediate
+      >
+        <template #aside>
+          <InteractionPanel />
+        </template>
+        <template #main>
+          <WorkspacePanel />
+        </template>
+      </bk-resize-layout>
     </ProjectLayout>
   </bk-loading>
 </template>
@@ -56,5 +71,18 @@ onUnmounted(() => {
 
 .project-page-loading :deep(.bk-loading-indicator) {
   z-index: 21;
+}
+
+.project-split {
+  width: 100%;
+  height: 100%;
+}
+
+.project-split :deep(.bk-resize-layout-aside),
+.project-split :deep(.bk-resize-layout-main),
+.project-split :deep(.bk-resize-layout-aside-content) {
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
 }
 </style>
